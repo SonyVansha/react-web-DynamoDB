@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Box, TableHead, Typography, Table, TableRow, TableCell, TableBody, styled, Button } from '@mui/material';
+
+import axios, { Axios } from 'axios';
 
 const Component = styled(Box)`
     width: 80%;
@@ -21,18 +23,29 @@ const Component = styled(Box)`
     }
 `;
 
-const defaultObj = [{
-    id: 101,
-    name: 'Sony Vansha',
-    email: 'example@gmail.com',
-    phone: '6176412798',
-    salary: 222000,
-    age: 19
-}];
+// const defaultObj = [{
+//     id: 101,
+//     name: 'Sony Vansha',
+//     email: 'example@gmail.com',
+//     phone: '6176412798',
+//     salary: 222000,
+//     age: 19
+// }];
 
 const Users = () => {
 
-    const [users, setUsers] = useState(defaultObj);
+    // const [users, setUsers] = useState(defaultObj);
+    const [users, setUsers] = useState([]);
+
+    const API_URL = `http://<API Gateway/Deb>`;
+
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios.get(API_URL);
+            setUsers(JSON.parse(response.data.body).Items);
+        }
+        getData();
+    }, [])
 
     const removeEntry = (id) => {
         const UpdateUsers =  users.filter(user => user.id !== id);
