@@ -1,13 +1,16 @@
 # Getting Started with Create React App
 
-```sh
-npx create-react-app users-processing-service
-```
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Architecture
 ![image](https://github.com/SonyVansha/react-web-DynamoDB/assets/152833966/3d860c08-0dff-431d-bdc1-478ed0de4da2)
+
+
+### Installation React
+
+```sh
+npx create-react-app users-processing-service
+```
 
 | Environment | Code Source |
 |--|--|
