@@ -36,6 +36,7 @@ const Users = () => {
     // const [users, setUsers] = useState(defaultObj);
     const [users, setUsers] = useState([]);
 
+    // const API_URL = process.env.REACT_APP_API_URL;
     useEffect(() => {
         const getData = async () => {
             const response = await axios.get(process.env.REACT_APP_API_URL);
