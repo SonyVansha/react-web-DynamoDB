@@ -2,11 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##
-
 | Environment | Code Source |
 |--|--|
-|**REACT_APP_API_URL**|URL API Gateway|
+|**API_URL**|URL API Gateway|
+
+## API Gateway
+
+| Resource | Method | CORS | Service Type |
+|--|--|--|--|
+|**/**| GET | yes | lambda |
+|**/user**| POST | no | lambda |
+
+
+## DynamoDB
+
+| **Table Name** | **Partition key** |
+|--|--|
+| UserTable | id (N) |
 
 ## Available Scripts
 
@@ -16,7 +28,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 
 
 ## React To AWS code
