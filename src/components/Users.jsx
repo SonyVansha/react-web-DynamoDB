@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-
 import { Box, TableHead, Typography, Table, TableRow, TableCell, TableBody, styled, Button } from '@mui/material';
 
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 
 const Component = styled(Box)`
     width: 80%;
@@ -37,11 +36,9 @@ const Users = () => {
     // const [users, setUsers] = useState(defaultObj);
     const [users, setUsers] = useState([]);
 
-    const API_URL = `http://<API Gateway/Deb>`;
-
     useEffect(() => {
         const getData = async () => {
-            const response = await axios.get(API_URL);
+            const response = await axios.get(process.env.REACT_APP_API_URL);
             setUsers(JSON.parse(response.data.body).Items);
         }
         getData();

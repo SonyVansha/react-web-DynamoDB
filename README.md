@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+##
+
+| Environment | Code Source |
+|--|--|
+|REACT_APP_API_URL|URL API Gateway|
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -57,4 +63,32 @@ npm install
 #### Start React Web
 ```sh
 npm start
+```
+
+## Example Code from Lambda use Nodejs 18
+```sh
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+const params = {
+    TableName: 'UserTable' // Name Table DynamoDB
+}
+
+const ListItems = async () => {
+    try {
+        const data = await docClient.scan(params).promise()
+        return data
+    } catch (error) {
+        return error
+    }
+}
+
+exports.handler = async (event, context) => {
+    try {
+        const data = await ListItems();
+        return { body: JSON.stringify(data)}
+    } catch(error) {
+        return { error: error }
+    }
+};
 ```
