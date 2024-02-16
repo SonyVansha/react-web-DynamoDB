@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+```sh
+npx create-react-app users-processing-service
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 | Environment | Code Source |
